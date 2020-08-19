@@ -1,0 +1,157 @@
+.wrapper {
+  display: flex;
+}
+h1 {
+  text-align: center;
+}
+.leftSideBar {
+  width: 360px;
+  height: 600px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.rightSideBar {
+  background-color: whitesmoke;
+  width: 360px;
+  height: 600px;
+}
+.mapContainer {
+  flex-grow:1;
+  width: 100%;
+}
+ul.menu {
+  padding: 0;
+  list-style: none;
+  width: 360px;
+  height: 600px;
+  margin: auto;
+  font-family: 'Century Gothic';
+  box-shadow: 0px 0px 25px #00000070;
+  clear: both;
+  display: table;
+  .list {
+    font-size: 14px;
+    border-bottom:1px solid #324252;
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
+    height: 50px;
+    vertical-align: sub;
+    background: #3e5165;
+    clear: both;
+    a {
+      text-decoration: none;
+      color: #fff;
+      padding: 17px 0px 17px 17px;
+      display: block;
+      height: 100%;
+      box-sizing: border-box;
+      &:hover {
+        background-color: #324252;
+        transition:  300ms all;
+        color: #09fbd2;
+      }
+    }
+    .items {
+      height: 0px;
+      overflow: hidden;
+      a {
+        padding: 17px;
+        &:hover {
+          background-color: #3f5d79;
+          color:#fff;
+          transition:  300ms all;
+
+        }
+      }
+    }
+    &:last-child {
+      border-bottom:none;
+    }
+  }
+  .active {
+    >.items {
+      display: block;
+      background: #23313f;
+      padding: 0px;
+      height: auto;
+      color:#fff;
+      transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition: all 200ms;
+      clear: both;
+      float: left;
+      width: 100%;
+      li {
+        padding:0px;
+        border-bottom:1px solid #324252;
+        list-style: none;
+      }
+      li:last-child {
+        border-color:transparent;
+        padding-bottom: 0px;
+      }
+      .active {
+        > .items {
+          background-color: #2f4b67;
+        }
+      }
+    }
+     a {
+      color: #becdc4;
+      text-transform: uppercase;
+
+    }
+    .list {
+      background: #697d92;
+      a {
+        padding: 17px 0px 17px 45px;
+
+      }
+    }
+  }
+}
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  text-align: center;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.activeBtn, .accordion:hover {
+  background-color: #ccc;
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+.items  li a {
+  text-transform: none !important;
+}
+
+.rightSideBarList {
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  margin: 10px;
+  input {
+    position: absolute;
+    top: 6px;
+    right: 5px;
+    cursor: pointer;
+  }
+}
+.selected {
+  background-color: #626468;
+  color: #daf5ff !important;
+  pointer-events: none;
+}

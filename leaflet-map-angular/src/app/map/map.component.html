@@ -1,0 +1,25 @@
+<h1>Список городов Украины</h1>
+<div class="wrapper">
+    <div class="leftSideBar">
+      <button class="accordion" (click)="accordion($event)">Города Украины</button>
+      <div class="panel">
+        <ul class="menu" *ngIf="areaCities.length">
+          <li class="list" *ngFor="let area of areaCities" (click)="accordion($event)"><a href="#" (click)="setMarker($event)">{{area.name}} </a>
+            <ul class="items">
+              <li *ngFor="let city of area.cities"><a href="#" (click)="getCity($event, area.cities)">{{city.name}}</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+    <div class="mapContainer">
+      <div id="map"></div>
+    </div>
+    <div class="rightSideBar">
+      <p style="text-align: center">Удаленные маркеры</p>
+      <div *ngFor="let marker of removedMarkers">
+        <p class="rightSideBarList">{{marker}}<input type="button" value="X" (click)="removeMarkerRightBlock(marker)"></p>
+      </div>
+    </div>
+  </div>

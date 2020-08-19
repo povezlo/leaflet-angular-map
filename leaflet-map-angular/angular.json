@@ -3,13 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "leaflet-map-angular": {
+    "angular-leaflet-starter": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        }
-      },
+      "schematics": {},
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -17,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/leaflet-map-angular",
+            "outputPath": "dist/angular-leaflet-starter",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -25,10 +21,16 @@
             "aot": true,
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "./node_modules/leaflet/dist/images",
+                "output": "assets/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/leaflet/dist/leaflet.css"
             ],
             "scripts": []
           },
@@ -66,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "leaflet-map-angular:build"
+            "browserTarget": "angular-leaflet-starter:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "leaflet-map-angular:build:production"
+              "browserTarget": "angular-leaflet-starter:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "leaflet-map-angular:build"
+            "browserTarget": "angular-leaflet-starter:build"
           }
         },
         "test": {
@@ -114,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "leaflet-map-angular:serve"
+            "devServerTarget": "angular-leaflet-starter:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "leaflet-map-angular:serve:production"
+              "devServerTarget": "angular-leaflet-starter:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "leaflet-map-angular"
+  "defaultProject": "angular-leaflet-starter"
 }
